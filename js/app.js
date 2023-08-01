@@ -64,14 +64,14 @@ const escapeHtml = (unsafe) => {
     .replace(/"/g, "&quot;")
     .replace(/'/g, "&#039;");
 };
-const showGift=()=>{
-  const giftCard=document.getElementById("gift-card")
-  giftCard.style.display="block"
+const showGift = () => {
+  const giftCard = document.getElementById("gift-card")
+  giftCard.style.display = "block"
 }
 const salin = (btn) => {
   navigator.clipboard.writeText(btn.getAttribute("data-nomer"));
   let tmp = btn.innerHTML;
-  btn.innerHTML = "Tersalin";
+  btn.innerHTML = "Copied";
   btn.disabled = true;
 
   setTimeout(() => {
@@ -155,7 +155,7 @@ const balasan = async (button) => {
 
   let id = button.getAttribute("data-uuid").toString();
 
- 
+
 
   const BALAS = document.getElementById("balasan");
   BALAS.innerHTML = renderLoading(1);
@@ -172,42 +172,41 @@ const balasan = async (button) => {
 
   await fetch(
     document.querySelector("body").getAttribute("data-url") +
-      "/api/comment/" +
-      id,
+    "/api/comment/" +
+    id,
     REQ
   )
     .then((res) => res.json())
     .then((res) => {
       const item = {
-        uuid:res.data.uuid,
+        uuid: res.data.uuid,
         nama: res.data.name,
         hadir: res.data.presence,
         created_at: res.data.created_at,
         komentar: res.data.detail,
         comment: res.data.comments,
       };
-        document.getElementById("kirim").style.display = "none";
-        document.getElementById("batal").style.display = "block";
-        document.getElementById("kirimbalasan").style.display = "block";
-        document.getElementById("idbalasan").value = id;
-        const namaSplit = item.nama.split("|");
-        const nama = namaSplit.length > 1 ? namaSplit[1] : namaSplit[0];
-        BALAS.innerHTML = `
+      document.getElementById("kirim").style.display = "none";
+      document.getElementById("batal").style.display = "block";
+      document.getElementById("kirimbalasan").style.display = "block";
+      document.getElementById("idbalasan").value = id;
+      const namaSplit = item.nama.split("|");
+      const nama = namaSplit.length > 1 ? namaSplit[1] : namaSplit[0];
+      BALAS.innerHTML = `
                 <div class="card-body bg-light shadow p-3 my-2 rounded-4 font-coklat">
                     <div class="d-flex flex-wrap justify-content-between align-items-center">
                         <p class="text-dark text-truncate m-0 p-0" style="font-size: 0.95rem;">
                             <strong>${escapeHtml(nama)}</strong>
                         </p>
-                        <small class="text-dark m-0 p-0" style="font-size: 0.75rem;">${
-                          item.created_at
-                        }</small>
+                        <small class="text-dark m-0 p-0" style="font-size: 0.75rem;">${item.created_at
+        }</small>
                     </div>
                     <hr class="text-dark my-1">
                     <p class="text-dark m-0 p-0" style="white-space: pre-line">${escapeHtml(
-                      filterBadWords(item.komentar)
-                    )}</p>
+          filterBadWords(item.komentar)
+        )}</p>
                 </div>`;
-   
+
     })
     .catch((err) => {
       resetForm();
@@ -225,7 +224,7 @@ const kirimBalasan = async () => {
   let id = document.getElementById("idbalasan").value;
 
   if (nama.length == 0) {
-    alert("nama tidak boleh kosong");
+    alert("The name field is required");
     return;
   }
 
@@ -290,7 +289,7 @@ const innerCard = (comment) => {
 
   comment.forEach((data) => {
     const item = {
-      uuid:data.uuid,
+      uuid: data.uuid,
       nama: data.name,
       hadir: data.presence,
       created_at: data.created_at,
@@ -301,24 +300,21 @@ const innerCard = (comment) => {
     const nama = namaSplit.length > 1 ? namaSplit[1] : namaSplit[0];
 
     result += `
-        <div class="card-body border-start bg-light py-2 ps-2 pe-0 my-2 ms-2 me-0 font-coklat" id="${
-          item.uuid
-        }">
+        <div class="card-body border-start bg-light py-2 ps-2 pe-0 my-2 ms-2 me-0 font-coklat" id="${item.uuid
+      }">
             <div class="d-flex flex-wrap justify-content-between align-items-center">
                 <p class="text-dark text-truncate m-0 p-0" style="font-size: 0.95rem;">
                     <strong>${escapeHtml(nama)}</strong>
                 </p>
-                <small class="text-dark m-0 p-0" style="font-size: 0.75rem;">${
-                  item.created_at
-                }</small>
+                <small class="text-dark m-0 p-0" style="font-size: 0.75rem;">${item.created_at
+      }</small>
             </div>
             <hr class="text-dark my-1">
             <p class="text-dark mt-0 mb-1 mx-0 p-0" style="white-space: pre-line">${escapeHtml(
-              filterBadWords(item.komentar)
-            )}</p>
-            <button style="font-size: 0.8rem;" onclick="balasan(this)" data-uuid="${
-              item.uuid
-            }" class="btn btn-sm btn-outline-dark rounded-4 py-0">Balas</button>
+        filterBadWords(item.komentar)
+      )}</p>
+            <button style="font-size: 0.8rem;" onclick="balasan(this)" data-uuid="${item.uuid
+      }" class="btn btn-sm btn-outline-dark rounded-4 py-0">Reply</button>
             ${innerCard(item.comment)}
         </div>`;
   });
@@ -335,21 +331,19 @@ const renderCard = (data) => {
     <div class="card-body bg-light shadow p-3 m-0 rounded-4 font-coklat" id="${data.uuid}">
         <div class="d-flex flex-wrap justify-content-between align-items-center">
             <p class="text-dark text-truncate m-0 p-0" style="font-size: 0.95rem;">
-                <strong class="me-1">${escapeHtml(nama)}</strong>${
-    data.hadir
+                <strong class="me-1">${escapeHtml(nama)}</strong>${data.hadir
       ? '<i class="fa-solid fa-circle-check text-success"></i>'
       : '<i class="fa-solid fa-circle-xmark text-danger"></i>'
-  }
+    }
             </p>
-            <small class="text-dark m-0 p-0" style="font-size: 0.75rem;">${
-              data.created_at
-            }</small>
+            <small class="text-dark m-0 p-0" style="font-size: 0.75rem;">${data.created_at
+    }</small>
         </div>
         <hr class="text-dark my-1">
         <p class="text-dark mt-0 mb-1 mx-0 p-0" style="white-space: pre-line">${escapeHtml(
-          filterBadWords(data.komentar)
-        )}</p>
-        <button style="font-size: 0.8rem;" onclick="balasan(this)" data-uuid="${data.uuid}" class="btn btn-sm btn-outline-dark rounded-4 py-0">Balas</button>
+      filterBadWords(data.komentar)
+    )}</p>
+        <button style="font-size: 0.8rem;" onclick="balasan(this)" data-uuid="${data.uuid}" class="btn btn-sm btn-outline-dark rounded-4 py-0">Reply</button>
         ${innerCard(data.comment)}
     </div>`;
   return DIV;
@@ -460,7 +454,7 @@ const ucapan = async () => {
       "Content-Type": "application/json",
     },
   };
-  var currentPage = Math.ceil(pagination.getNext()  / 10)+1
+  var currentPage = Math.ceil(pagination.getNext() / 10) + 1
   await fetch(
     document.querySelector("body").getAttribute("data-url") + `/api/comment?page=${currentPage}`,
     REQ
@@ -470,14 +464,14 @@ const ucapan = async () => {
       UCAPAN.innerHTML = null;
       res.data.forEach((data) => {
         const item = {
-          uuid:data.uuid,
+          uuid: data.uuid,
           nama: data.name,
           hadir: data.presence,
           created_at: data.created_at,
           komentar: data.detail,
           comment: data.comments,
         };
-          UCAPAN.appendChild(renderCard(item));
+        UCAPAN.appendChild(renderCard(item));
       });
       // console.log(res.data.length)
       pagination.setResultData(res.data.length);
@@ -501,7 +495,7 @@ const kirim = async () => {
   let hadir = document.getElementById("hadiran").value;
   let komentar = document.getElementById("formpesan").value;
   if (nama.length == 0) {
-    alert("nama tidak boleh kosong");
+    alert("The name field is required");
     return;
   }
 

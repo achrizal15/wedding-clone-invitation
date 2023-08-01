@@ -1,68 +1,77 @@
-$primary:#ebd1c8;
-$secondary:#ffdfcf;
-$coklat:#815732;
-$smoot:#E7BCA9;
+$primary: #ebd1c8;
+$secondary: #ffdfcf;
+$coklat: #815732;
+$smoot: #E7BCA9;
+
 html {
     scroll-behavior: smooth;
 }
-.modal{
-    .modal-content{
+
+.modal {
+    .modal-content {
         position: relative;
         overflow: hidden;
         background-repeat: no-repeat;
         background-size: 100% 100%;
         background-color: $smoot;
-   
-      @media (max-width:1024px) {
-        img.m-after{
-            position: absolute;
-            top: -20px;
-            left: -15px;
-            width: 250px;
+
+        @media (max-width:1024px) {
+            img.m-after {
+                position: absolute;
+                top: -20px;
+                left: -15px;
+                width: 250px;
+            }
+
+            img.m-before {
+                position: absolute;
+                bottom: -50px;
+                right: -55px;
+                width: 250px;
+                rotate: 30deg;
+            }
         }
-        img.m-before{
-            position: absolute;
-            bottom: -50px;
-            right: -55px;
-            width: 250px;
-            rotate: 30deg;
+
+        @media (min-width:1024px) {
+            img.m-after {
+                position: absolute;
+                top: -5px;
+                left: 0;
+                width: 250px;
+            }
+
+            img.m-before {
+                position: absolute;
+                bottom: -50px;
+                right: -5px;
+                width: 250px;
+                rotate: 30deg;
+            }
         }
-      }
-      @media (min-width:1024px) {
-        img.m-after{
-            position: absolute;
-            top: -5px;
-            left: 0;
-            width: 250px;
+
+        @media (max-width:425px) {
+            img.m-after {
+                position: absolute;
+                top: -30px;
+                left: -15px;
+                width: 250px;
+            }
+
+            img.m-before {
+                position: absolute;
+                bottom: -60px;
+                right: -130px;
+                width: 250px;
+                rotate: 30deg;
+            }
         }
-        img.m-before{
-            position: absolute;
-            bottom: -50px;
-            right: -5px;
-            width: 250px;
-            rotate: 30deg;
-        }
-      }
-      @media (max-width:425px) {
-        img.m-after{
-            position: absolute;
-            top: -30px;
-            left: -15px;
-            width: 250px;
-        }
-        img.m-before{
-            position: absolute;
-            bottom: -60px;
-            right: -130px;
-            width: 250px;
-            rotate: 30deg;
-        }
-      }
     }
 }
-.navbar-expand .navbar-nav .nav-link{
+
+.navbar-expand .navbar-nav .nav-link {
     color: $coklat;
 }
+
 body {
     font-family: 'Josefin Sans', sans-serif;
     padding: 0 !important;
@@ -71,15 +80,19 @@ body {
     scrollbar-width: none;
     background-color: $primary;
 }
-.font-coklat{
+
+.font-coklat {
     color: $coklat;
-    &:hover{
-        color:$coklat;
+
+    &:hover {
+        color: $coklat;
     }
 }
-.font-coksoft{
+
+.font-coksoft {
     color: $secondary;
 }
+
 body::-webkit-scrollbar {
     display: none;
 }
@@ -88,15 +101,18 @@ body::-webkit-scrollbar {
     font-family: 'Sacramento', cursive !important;
     color: $coklat !important;
 }
-.bg-cream{
+
+.bg-cream {
     background-color: $primary;
 }
+
 .cropper {
     width: 14rem;
     height: 14rem;
     position: relative;
     overflow: hidden;
     border-radius: 50%;
+
     img {
         display: inline;
         margin: 0 auto;
@@ -117,10 +133,12 @@ body::-webkit-scrollbar {
 .card-body {
     overflow-wrap: break-word !important;
 }
-.border{
+
+.border {
     border-color: $secondary !important;
 
 }
+
 .mousey {
     padding: 0.25rem 0.625rem;
     height: 2rem;
@@ -156,24 +174,30 @@ body::-webkit-scrollbar {
         opacity: 0;
     }
 }
-.btn-kirim{
+
+.btn-kirim {
     color: $coklat;
     background-color: $smoot;
     border: $coklat;
-    &:hover{
+
+    &:hover {
         background-color: $coklat;
         color: $smoot;
     }
 }
-.form-control,.form-select{
+
+.form-control,
+.form-select {
     background-color: $smoot;
     color: $coklat;
     border-color: $coklat;
-    &::placeholder{
+
+    &::placeholder {
         color: $coklat;
 
     }
-    &:focus{
+
+    &:focus {
         border-color: $coklat;
         color: $coklat;
         background-color: $smoot;
