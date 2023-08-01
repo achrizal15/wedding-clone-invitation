@@ -12,21 +12,7 @@ html {
         background-repeat: no-repeat;
         background-size: 100% 100%;
         background-color: $smoot;
-      @media (max-width:425px) {
-        img.m-after{
-            position: absolute;
-            top: -30px;
-            left: -15px;
-            width: 250px;
-        }
-        img.m-before{
-            position: absolute;
-            bottom: -80px;
-            right: -155px;
-            width: 250px;
-            rotate: 30deg;
-        }
-      }
+   
       @media (max-width:1024px) {
         img.m-after{
             position: absolute;
@@ -53,6 +39,21 @@ html {
             position: absolute;
             bottom: -50px;
             right: -5px;
+            width: 250px;
+            rotate: 30deg;
+        }
+      }
+      @media (max-width:425px) {
+        img.m-after{
+            position: absolute;
+            top: -30px;
+            left: -15px;
+            width: 250px;
+        }
+        img.m-before{
+            position: absolute;
+            bottom: -30px;
+            right: -130px;
             width: 250px;
             rotate: 30deg;
         }
