@@ -1,0 +1,180 @@
+$primary:#ebd1c8;
+$secondary:#ffdfcf;
+$coklat:#815732;
+$smoot:#E7BCA9;
+html {
+    scroll-behavior: smooth;
+}
+.modal{
+    .modal-content{
+        position: relative;
+        overflow: hidden;
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        background-color: $smoot;
+      @media (max-width:425px) {
+        img.m-after{
+            position: absolute;
+            top: -30px;
+            left: -15px;
+            width: 250px;
+        }
+        img.m-before{
+            position: absolute;
+            bottom: -50px;
+            right: -155px;
+            width: 250px;
+            rotate: 30deg;
+        }
+      }
+      @media (max-width:1024px) {
+        img.m-after{
+            position: absolute;
+            top: -20px;
+            left: -15px;
+            width: 250px;
+        }
+        img.m-before{
+            position: absolute;
+            bottom: -50px;
+            right: -55px;
+            width: 250px;
+            rotate: 30deg;
+        }
+      }
+      @media (min-width:1024px) {
+        img.m-after{
+            position: absolute;
+            top: -5px;
+            left: 0;
+            width: 250px;
+        }
+        img.m-before{
+            position: absolute;
+            bottom: -50px;
+            right: -5px;
+            width: 250px;
+            rotate: 30deg;
+        }
+      }
+    }
+}
+.navbar-expand .navbar-nav .nav-link{
+    color: $coklat;
+}
+body {
+    font-family: 'Josefin Sans', sans-serif;
+    padding: 0 !important;
+    overflow-y: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    background-color: $primary;
+}
+.font-coklat{
+    color: $coklat;
+    &:hover{
+        color:$coklat;
+    }
+}
+.font-coksoft{
+    color: $secondary;
+}
+body::-webkit-scrollbar {
+    display: none;
+}
+
+.font-estetik {
+    font-family: 'Sacramento', cursive !important;
+    color: $coklat !important;
+}
+.bg-cream{
+    background-color: $primary;
+}
+.cropper {
+    width: 14rem;
+    height: 14rem;
+    position: relative;
+    overflow: hidden;
+    border-radius: 50%;
+    img {
+        display: inline;
+        margin: 0 auto;
+        height: auto;
+        width: 100%;
+        // object-position: 3px -50px;
+        // scale: 1.5;
+    }
+}
+
+.btn-music {
+    position: fixed;
+    bottom: 9vh;
+    right: 2vh;
+    z-index: 1055;
+}
+
+.card-body {
+    overflow-wrap: break-word !important;
+}
+.border{
+    border-color: $secondary !important;
+
+}
+.mousey {
+    padding: 0.25rem 0.625rem;
+    height: 2rem;
+    border: 0.1rem solid #fff;
+    border-radius: 1.4rem;
+    opacity: 0.75;
+    box-sizing: content-box;
+}
+
+.scroller {
+    width: 0.25rem;
+    height: 0.625rem;
+    border-radius: 25%;
+    background-color: #fff;
+    animation-name: scroll;
+    animation-duration: 2.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+@keyframes scroll {
+    0% {
+        opacity: 0;
+    }
+
+    10% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(1rem);
+        opacity: 0;
+    }
+}
+.btn-kirim{
+    color: $coklat;
+    background-color: $smoot;
+    border: $coklat;
+    &:hover{
+        background-color: $coklat;
+        color: $smoot;
+    }
+}
+.form-control,.form-select{
+    background-color: $smoot;
+    color: $coklat;
+    border-color: $coklat;
+    &::placeholder{
+        color: $coklat;
+
+    }
+    &:focus{
+        border-color: $coklat;
+        color: $coklat;
+        background-color: $smoot;
+    }
+}
