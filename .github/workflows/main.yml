@@ -14,6 +14,6 @@ jobs:
     - name: 📂 Sync files
       uses: SamKirkland/FTP-Deploy-Action@v4.3.4
       with:
-        server: 51.81.152.107
-        username: achrizal15@onewedding.us
-        password: (j5Z1m&jF;@*
+        server: ftp.rgtesting.site
+        username: onewedding@onewedding.us
+        password: pusing081
